@@ -15,9 +15,9 @@ const client = new Client({
   ],
 })
 const commands = requireDir('./commands')
-const command_prefix = '!!'
+const command_prefix = process.env.COMMAND_PREFIX
 
-client.once(Events.ClientReady, () => console.log('Bot is Ready'))
+client.once(Events.ClientReady, () => console.log('Discord Bot is Ready'))
 
 client.on('messageCreate', message => {
   if (!message.author.bot && message.content.startsWith(command_prefix)) {
